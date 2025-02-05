@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN AND REGISTER FORM</title>
+    <link rel="stylesheet" href="form.css">
+      <script src="https://kit.fontawesome.com/0970b23f2e.js" crossorigin="anonymous"></script>   
+</head>
+<body>
+    <header>
+        <h2 class="logo"> <a href="#">Logo</a></h2>
+        <nav class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <button class="btnlogin-popup" id="openForm"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;Account</button>
+        </nav>
+    </header>
+    
+    <div class="wrapper" id="formWrapper">
+        <button class="icon-close" id="closeBtn"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="form-box login active">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" required />
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"> <i class="fa-solid fa-lock"></i></span>
+                    <input type="password" required />
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+                </div> 
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>Register</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" required />
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" required />
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"> <i class="fa-solid fa-lock"></i></span>
+                    <input type="password" required />
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        const openFormBtn = document.getElementById("openForm");
+        const formWrapper = document.getElementById("formWrapper");
+        const loginForm = document.querySelector(".form-box.login");
+        const registerForm = document.querySelector(".form-box.register");
+        const showRegisterLink = document.getElementById("showRegister");
+        const showLoginLink = document.getElementById("showLogin");
+        const closeBtn = document.getElementById("closeBtn");
+
+        openFormBtn.addEventListener("click", () => {
+            formWrapper.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            formWrapper.classList.remove("active");
+        });
+
+        showRegisterLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginForm.classList.remove("active");
+            registerForm.classList.add("active");
+        });
+
+        showLoginLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            registerForm.classList.remove("active");
+            loginForm.classList.add("active");
+        });
+    </script>
+</body>
+</html>
